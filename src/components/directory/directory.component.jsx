@@ -13,13 +13,13 @@ class Directory extends React.Component{
         this.state = {
             sections: [
                 {
-                  title: 'JACKETS',
+                  title: 'jackets',
                   imageUrl: 'https://i.ibb.co/cvpntL1/hats.png',
                   id: 1,
                   linkUrl: 'shop/jackets'
                 },
                 {
-                  title: 'TOPS',
+                  title: 'tops',
                   imageUrl: 'https://i.ibb.co/px2tCc3/jackets.png',
                   id: 2,
                   linkUrl: 'shop/tops'
@@ -31,9 +31,9 @@ class Directory extends React.Component{
                   linkUrl: 'shop/sneakers'
                 },
                 {
-                  title: 'womens',
+                  title: 'women',
                   imageUrl: 'https://i.ibb.co/GCCdy8t/womens.png',
-                  size: 'large',
+                  size: 'large', //added as a classname in the Menu-item compnts: size is increased in scss
                   id: 4,
                   linkUrl: 'shop/womens'
                 },
@@ -44,7 +44,7 @@ class Directory extends React.Component{
                   id: 5,
                   linkUrl: 'shop/mens'
                 },
-                
+
               ]
 
         }

@@ -1,4 +1,10 @@
 import React from 'react';
+import MenuItems from '../menu-item/menu-item.component';
+import '../menu-item/menu-item.style.scss';
+import './directory.style.scss';
+
+
+
 
 class Directory extends React.Component{
     constructor(){
@@ -42,22 +48,25 @@ class Directory extends React.Component{
 
         }
 
-
-
     }
-}
 
 
 render() {
+
     return (
 
         <div className='directory-menu'>
+            {
+                this.state.sections.map(({title, id, imageUrl}) => (//use destructor i.e pass more than one value
+                    <MenuItems key={id} title = {title} imageUrl = {imageUrl}/>
+                ))
+            }
 
         </div>
 
-    );
+    )
+  }
 }
-
 
 
 

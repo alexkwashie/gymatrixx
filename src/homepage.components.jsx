@@ -1,4 +1,6 @@
 import React from 'react';
+import './homepage.style.scss';
+
 
 const Homepage = () => (
     <div className = 'homepage'>
@@ -7,7 +9,7 @@ const Homepage = () => (
 
         <div className = 'menu-item'>
         <div className = 'content'>
-                    <h1 className = 'title'>TOPS</h1>
+                    <h1 className = 'title'>JACKETS</h1>
                     <span className = 'subtitle'>SHOP NOW</span>
                 </div>
         </div>

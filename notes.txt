@@ -1,0 +1,6 @@
+1. Create React app already comes with css - Sass; Use 'yarn add node-sass' to include your project
+
+2. When packages encounter a problem:
+...$ rm -rf yarn.lock
+     rm -rf node_modules
+     yarn

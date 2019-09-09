@@ -16,13 +16,13 @@ class Directory extends React.Component{
                   title: 'jackets',
                   imageUrl: 'https://i.ibb.co/cvpntL1/hats.png',
                   id: 1,
-                  linkUrl: 'shop/jackets'
+                  linkUrl: 'jackets'
                 },
                 {
                   title: 'tops',
                   imageUrl: 'https://i.ibb.co/px2tCc3/jackets.png',
                   id: 2,
-                  linkUrl: 'shop/tops'
+                  linkUrl: 'tops'
                 },
                 {
                   title: 'sneakers',
@@ -58,8 +58,8 @@ render() {
 
         <div className='directory-menu'>
             {
-                this.state.sections.map(({title, id, imageUrl, size}) => (//use destructor i.e pass more than one value
-                    <MenuItems key={id} title = {title} imageUrl = {imageUrl} size = {size}/>
+                this.state.sections.map(({title, id, imageUrl, size, linkUrl}) => (//use destructor i.e pass more than one value
+                    <MenuItems key={id} title = {title} imageUrl = {imageUrl} size = {size} linkUrl = {linkUrl}/>
                 ))
             }
 

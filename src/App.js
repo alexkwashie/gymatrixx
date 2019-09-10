@@ -17,7 +17,7 @@ function App() {
 
             <Route exact path='/' component={Homepage}/>
             <Route path='/tops' component={TopsPage}/> {/*exact={true} means go to the exact url location*/}
-            {/*<Switch> means, render if ther is a match*/}
+            {/*<Switch> means, render if there is a match*/}
             <Link to='/tops'>Tops</Link>
 
         </div>

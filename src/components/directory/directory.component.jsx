@@ -1,7 +1,7 @@
 import React from 'react';
 import MenuItems from '../menu-item/menu-item.component';
-import '../menu-item/menu-item.style.scss';
-import './directory.style.scss';
+import '../menu-item/menu-item.styles.scss';
+import './directory.styles.scss';
 
 
 
@@ -28,21 +28,21 @@ class Directory extends React.Component{
                   title: 'sneakers',
                   imageUrl: 'https://i.ibb.co/0jqHpnp/sneakers.png',
                   id: 3,
-                  linkUrl: 'shop/sneakers'
+                  linkUrl: 'sneakers'
                 },
                 {
                   title: 'women',
                   imageUrl: 'https://i.ibb.co/GCCdy8t/womens.png',
                   size: 'large', //added as a classname in the Menu-item compnts: size is increased in scss
                   id: 4,
-                  linkUrl: 'shop/womens'
+                  linkUrl: 'womens'
                 },
                 {
                   title: 'mens',
                   imageUrl: 'https://i.ibb.co/R70vBrQ/men.png',
                   size: 'large',
                   id: 5,
-                  linkUrl: 'shop/mens'
+                  linkUrl: 'mens'
                 },
 
               ]

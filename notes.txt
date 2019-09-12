@@ -4,3 +4,11 @@
 ...$ rm -rf yarn.lock
      rm -rf node_modules
      yarn
+
+
+
+3.Adding Firebase
+- yarn add firebase
+- add following from - firebase.utils.js
+-To google,facebook or other sign in methods - got main firebasepage => authentication =>
+sign-in method => tick enabled add email and save.

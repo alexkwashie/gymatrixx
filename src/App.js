@@ -17,15 +17,18 @@ class App extends React.Component{
         }
     }
 
-    //when page mounts this assigns logged user details to currentUser
+    unsubscribeFromAuth = null
+
+    //when page mounts this sets unsubscribeFromAuth to the logged user details  and also to currentUser object
     componentDidMount(){
-        auth.onAuthStateChanged(user => {
+        this.unsubscribeFromAuth = auth.onAuthStateChanged(user => {
             this.setState = ({currentUser: user});
-
-            console.log(user);
-
-
         })
+    }
+
+    //this is to cancel any previous connections etc. so its used for signing out logged user
+    componentWillUnmount(){
+        this.unsubscribeFromAuth();
     }
 
         render(){

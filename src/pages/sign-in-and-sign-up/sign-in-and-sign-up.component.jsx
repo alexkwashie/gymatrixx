@@ -6,8 +6,7 @@
 
 const SignInandSingUp = () =>(
     <div className='sign-in-and-sign-up'>
-        <h1>Sign In</h1>
-        <SignIn/>
+        <SignIn />
     </div>
 )
 

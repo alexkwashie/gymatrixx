@@ -22,7 +22,8 @@ class App extends React.Component{
     //when page mounts this sets unsubscribeFromAuth to the logged user details  and also to currentUser object
     componentDidMount(){
         this.unsubscribeFromAuth = auth.onAuthStateChanged(user => {
-            this.setState = ({currentUser: user});
+            this.setState({currentUser: user});
+            console.log(user)
         })
     }
 
@@ -32,9 +33,12 @@ class App extends React.Component{
     }
 
         render(){
+
+            const currentUser= this.state.currentUser
+
             return (
                 <div>
-                    <Header/>
+                    <Header currentUser = {currentUser}/>
                     <Switch>
                     <Route exact path='/' component={Homepage}/>
                     <Route path='/shop' component={shopPage}/>

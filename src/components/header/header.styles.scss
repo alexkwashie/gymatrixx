@@ -17,13 +17,15 @@
 
     .options{
         height: 100%;
-        width: 50px;
+        width: 60px;
         display: flex;
         align-items: center;
         justify-content: flex-end;
 
         .option {
         padding: 10px 35px;
+        white-space: nowrap;
+        cursor: pointer;
         }
     }
 }

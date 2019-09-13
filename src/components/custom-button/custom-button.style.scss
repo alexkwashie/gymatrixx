@@ -21,4 +21,14 @@
       color: black;
       border: 1px solid black;
     }
+
+    &.google-sign-in{
+        background-color: rgb(74, 94, 242);
+        color: white;
+
+        &:hover{
+            background-color: rgb(126, 53, 191);
+            border: none;
+        }
+    }
   }

@@ -14,13 +14,34 @@ const config = {
 
   // 1. this is an async function because it is calling the firebase api to check if details exist
    export const createUserProfileDocument = async (userAuth, additionalData) =>{
-            if(!userAuth) return;  // if userAuth does not exist, return nothin
+            if(!userAuth) return;  // if userAuth does not exist, return nothing
 
-            const userRef = firestore.doc('user/123ubidh3h2');
+            const userRef = firestore.doc(`users/${userAuth.uid}`);//this give u the signed in users uid from Authentication section of firebase
 
             const snapshot = await userRef.get();
 
-            console.log(snapshot); //exist: if there is data available
+            //console.log(snapshot); //exist: if there is data available
+
+            /* Note: the snapshot represents the data, but the UserRef is used to
+            create,read, update & delete:  check video 12 - storing data in firebase */
+
+            if(!snapshot.exists){
+              //if user does not Exist create new user from the userAuth object
+              const {displayName, email} = userAuth;
+              const createdAt = new Date();
+
+              //set the following values to the new user object
+              try {
+                await userRef.set(
+                  {displayName, email, createdAt, ...additionalData}) //additionalData meaning any other data u will want to use
+              }
+              catch(error){
+                console.log('Error creating user',error.message)
+              }
+
+              return userRef; //this function returns the userRef so it can be used in other parts of the code
+            }
+
 
    }
 

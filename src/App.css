@@ -10,3 +10,7 @@ a{
 a:hover{
     cursor: pointer;
 }
+
+*{
+    box-sizing: border-box;
+}

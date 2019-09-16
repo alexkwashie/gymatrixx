@@ -22,10 +22,27 @@ class App extends React.Component{
 
     //when page mounts this sets unsubscribeFromAuth to the logged user details  and also to currentUser object
     componentDidMount(){
-        this.unsubscribeFromAuth = auth.onAuthStateChanged(async user => {
-            createUserProfileDocument(user)
+        this.unsubscribeFromAuth = auth.onAuthStateChanged(async userAuth => {
+            if(userAuth){
+                const userRef = await createUserProfileDocument(userAuth);
 
-        })
+                        userRef.onSnapshot((snapshot) => {
+                            //console.log(snapshot.data()) //.data returns a json object
+                            this.setState({
+                                currentUser:{
+                                    id: snapshot.id,
+                                    ...snapshot.data()  //spread the other data values
+                                }
+
+                            }, () =>{
+                                console.log(this.state);
+                            })
+                    });
+
+                } else{
+                    this.state({currentUser:userAuth}) //i.e when user logges out assign currentUser to null
+                }
+        });
     }
 
     //this is to cancel any previous connections etc. so its used for signing out logged user

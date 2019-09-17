@@ -38,7 +38,7 @@ class App extends React.Component {
                 });
 
             }
-                this.setState({user: userAuth}) //i.e when user logges out assign currentUser to null
+                this.setState({currentUser: userAuth}) //i.e when user logges out assign currentUser to null
 
         });
     }

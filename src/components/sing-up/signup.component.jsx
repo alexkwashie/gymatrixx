@@ -24,7 +24,7 @@ class SignUp extends React.Component {
 
         const {displayName, email, password, confirmPassword} = this.state;
 
-        //if password is not the same
+        //if password is not the same,alert!
         if (password !== confirmPassword) {
             alert('Passwords do not match');
             return;
@@ -32,10 +32,12 @@ class SignUp extends React.Component {
 
         //create new user with details from above
         try {
-            const {user} = await auth.createUserWithEmailAndPassword(email, password);
+            const {user} = await auth.createUserWithEmailAndPassword(email, password); //await func waits for firebase to add email and password
 
+            //when top code is done fb waits and gets the user & displayName
             await createUserProfileDocument(user, {displayName});
 
+            //this clears the field after submission 
             this.setState({
                 displayName: '',
                 email: '',
@@ -43,9 +45,22 @@ class SignUp extends React.Component {
                 confirmPassword: ''})
 
         } catch (error) {
-            console.log(rrror)
+            console.log(error)
         }
     };
+
+        handleChange = e =>{
+
+            const {value, name} = e.target;
+
+        this.setState({[name]: value});
+        /*this means, the name value will be equal to the event target
+            name:value e.g. email: (value typed in)
+        */
+        }
+
+
+
 
 
     render() {

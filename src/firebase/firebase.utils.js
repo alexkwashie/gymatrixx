@@ -25,7 +25,7 @@ const config = {
             /* Note: the snapshot represents the data, but the UserRef is used to
             create,read, update & delete:  check video 12 - storing data in firebase */
 
-            if(snapshot.exists === true){
+            if(!snapshot.exists){
               //if user Exist create new user from the userAuth object
               const {displayName, email} = userAuth;
               const createdAt = new Date();

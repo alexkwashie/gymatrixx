@@ -38,12 +38,9 @@ const config = {
               catch(error){
                 console.log('Error creating user',error.message)
               }
-
+            }
               return userRef; //this function returns the userRef as so it can be used in other parts of the code
             }
-
-
-   }
 
    //if the userAuth func in firebase.utils.js is not null
 

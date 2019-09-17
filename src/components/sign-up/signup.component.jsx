@@ -4,7 +4,7 @@ import './signup.styles.scss';
 import FormInput from '../form-input/form-input.component'
 import CustomButton from '../custom-button/custom-button.component'
 
-import {auth, createUserProfileDocument} from './firebase/firebase.utils'
+import {auth, createUserProfileDocument} from '../../firebase/firebase.utils'
 
 //use a class because we want to save the user login
 class SignUp extends React.Component {
@@ -37,7 +37,7 @@ class SignUp extends React.Component {
             //when top code is done fb waits and gets the user & displayName
             await createUserProfileDocument(user, {displayName});
 
-            //this clears the field after submission 
+            //this clears the field after submission
             this.setState({
                 displayName: '',
                 email: '',

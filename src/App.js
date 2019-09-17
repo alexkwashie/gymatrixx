@@ -45,6 +45,8 @@ class App extends React.Component{
         });
     }
 
+
+    
     //this is to cancel any previous connections etc. so its used for signing out logged user
     componentWillUnmount(){
         this.unsubscribeFromAuth();

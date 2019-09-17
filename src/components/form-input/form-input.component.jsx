@@ -5,7 +5,7 @@ const FormInput =({handleChange, label, ...otherProps})=>(
     <div className='group'>
         <input className = 'form-input' onChange={handleChange} {...otherProps}/>
 
-        {/*code below: if there is a label, apply class shrink when the useclicks into input field*/}
+        {/*code below: if there is a label, apply class shrink when the user clicks into input field*/}
         {/*apply passed in label to the label class*/}
 
         {

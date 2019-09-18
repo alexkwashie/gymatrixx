@@ -31,6 +31,7 @@ class SignIn extends React.Component {
             this.setState({email: '', password: ''})
 
         } catch (error) {
+            alert('Email or password is invalid, please check and try again')
             console.log(error)
         }
 
@@ -69,7 +70,7 @@ class SignIn extends React.Component {
                         required/>
 
                     <div className='buttons'>
-                        <CustomButton type="submit">Submit Form</CustomButton>
+                        <CustomButton type="submit">Sign In</CustomButton>
                         {/*Submit Form acts as the children*/}
                         <CustomButton onClick={signInWithGoogle} isGoogleSignIn>
                             {/*isGoogleSignIn will alwasy be true onles otherwise*/}

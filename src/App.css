@@ -14,9 +14,8 @@ a:hover{
 
 /* this si to make sure every element fits in it div container,
 but its affecting other divs, so apply it to only Signin form div
-
+*/
 *{
-    box-sizing: border-box;
+    box-sizing: border-box
 }
 
-*/

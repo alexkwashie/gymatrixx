@@ -8,8 +8,11 @@ import {Provider} from 'react-redux';
 import './index.css';
 import App from './App';
 
+import store from './redux/store';
+
+
 ReactDOM.render(
-    <Provider>
+    <Provider store={store}> {/* Now can pass in the store into the main application*/}
     <BrowserRouter>
     <App/>
     </BrowserRouter>

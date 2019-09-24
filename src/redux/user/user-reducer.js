@@ -1,6 +1,6 @@
 
 const INITIAL_STATE={
-    currentUser= null
+    currentUser: null
 }
 
 

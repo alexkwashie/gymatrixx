@@ -3,6 +3,7 @@ import './header.styles.scss'
 import {Link} from 'react-router-dom';
 import {ReactComponent as Logo} from '../assets/g-logo.svg'
 import {auth} from '../../firebase/firebase.utils'
+import {connect} from 'react-redux';
 
 
 
@@ -33,6 +34,12 @@ const Header = ({currentUser}) =>(
 
 )
 
+/*This is using the connect function from redux to link in the state from the root-reducer which hold a stander
+state object whic can be used through out the application */
+
+const mapStateToProps = state =>({
+    currentUser: state.user.currentUser //hence this is assigning the state used in this component to the default state in the root-reducer
+})
 
 
-export default Header;
+export default connect(mapStateToProps)(Header);

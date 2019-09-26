@@ -1,21 +1,17 @@
 import React from 'react';
 import './App.css';
 import {Route, Switch} from 'react-router-dom';
+import {connect} from 'react-redux';
 
 import shopPage from './pages/shop/shop.component'
 import Homepage from './pages/homepage/homepage.components';
 import Header from './components/header/header.component'
 import SignInandSingUp from './pages/sign-in-and-sign-up/sign-in-and-sign-up.component';
 import {auth, createUserProfileDocument} from './firebase/firebase.utils'
+import { dispatch } from 'rxjs/internal/observable/range';
+import {setCurrentUser} from './redux/user/user.action'
 
 class App extends React.Component {
-    constructor() {
-        super();
-
-        this.state = {
-            currentUser: null
-        }
-    }
 
     unsubscribeFromAuth = null
 
@@ -23,23 +19,26 @@ class App extends React.Component {
     // also to currentUser object
 
     componentDidMount() {
+
+        const {setCurrentUser} = this.props;
+
         this.unsubscribeFromAuth = auth.onAuthStateChanged(async userAuth => {
           if (userAuth) {
             const userRef = await createUserProfileDocument(userAuth);
 
             userRef.onSnapshot(snapShot => {
-              this.setState({
-                currentUser: {
+              setCurrentUser({
+
                   id: snapShot.id,
                   ...snapShot.data()
-                }
+
               });
 
               console.log(this.state);
             });
           }
 
-          this.setState({ currentUser: userAuth });
+          setCurrentUser(userAuth);
         });
       }
 
@@ -71,4 +70,13 @@ class App extends React.Component {
 
 }
 
-export default App;
+
+const mapDispatchToProps = dispatch =>({
+  setCurrentUser: user => dispatch(setCurrentUser(user)) // using the current user as the paylod in ./redux/user/user.action
+})
+
+export default connect(null, mapDispatchToProps)(App);
+
+/* Use null as the first argument because we dnt need any props to use as state
+  Import setCurrentuser to use a the main user object, which replaces the main state
+*/

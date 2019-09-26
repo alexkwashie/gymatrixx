@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.css';
-import {Route, Switch} from 'react-router-dom';
+import {Route, Switch, Redirect} from 'react-router-dom';
 import {connect} from 'react-redux';
 
 import shopPage from './pages/shop/shop.component'
@@ -60,7 +60,15 @@ class App extends React.Component {
                 <Switch>
                     <Route exact path='/' component={Homepage}/>
                     <Route path='/shop' component={shopPage}/>
-                    <Route path='/signin' component={SignInandSingUp}/> {/*exact={true} means go to the exact url location*/}
+                    {/* if user is already signed-in redirect to main home page*/}
+                    <Route exact path='/signin' render={() =>
+                      this.props.currentUser ?
+                      (<Redirect to='/' />) :
+                      ( <SignInandSingUp /> )} />
+
+
+
+                    {/* <Route path='/signin' component={SignInandSingUp}/> {/*exact={true} means go to the exact url location*/} */}
                     {/*<Switch> means, render if there is a match*/}
                     {/*<Link to='/tops'>Tops</Link> */}
                 </Switch>
@@ -70,12 +78,16 @@ class App extends React.Component {
 
 }
 
+//get the current state of the user object to be used in the to redirect to the main page if user is already logged-in
+const mapStateToProps = ({user})=>({
+  currentUser: user.currentUser
+});
 
 const mapDispatchToProps = dispatch =>({
   setCurrentUser: user => dispatch(setCurrentUser(user)) // using the current user as the paylod in ./redux/user/user.action
 })
 
-export default connect(null, mapDispatchToProps)(App);
+export default connect(mapStateToProps, mapDispatchToProps)(App);
 
 /* Use null as the first argument because we dnt need any props to use as state
   Import setCurrentuser to use a the main user object, which replaces the main state

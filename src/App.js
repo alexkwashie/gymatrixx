@@ -8,7 +8,6 @@ import Homepage from './pages/homepage/homepage.components';
 import Header from './components/header/header.component'
 import SignInandSingUp from './pages/sign-in-and-sign-up/sign-in-and-sign-up.component';
 import {auth, createUserProfileDocument} from './firebase/firebase.utils'
-import { dispatch } from 'rxjs/internal/observable/range';
 import {setCurrentUser} from './redux/user/user.action'
 
 class App extends React.Component {
@@ -20,7 +19,7 @@ class App extends React.Component {
 
     componentDidMount() {
 
-        const {setCurrentUser} = this.props;
+        const {setCurrentUser} = this.props; //get the setCurrent user from this.props.setCurrent
 
         this.unsubscribeFromAuth = auth.onAuthStateChanged(async userAuth => {
           if (userAuth) {
@@ -89,6 +88,8 @@ const mapDispatchToProps = dispatch =>({
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);
 
-/* Use null as the first argument because we dnt need any props to use as state
-  Import setCurrentuser to use a the main user object, which replaces the main state
+/* i. Use null as the first argument because we dnt need any props to use as state
+  ii. Import setCurrentuser to use a the main user object, which replaces the main state
+  iii. Now as the setCurrentUser from './redux/user/user.action' is been use as the main state in the App.js, its updates
+  the root-reducer and the change there is passed through other parts of this application eg. Header etc.
 */

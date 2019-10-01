@@ -4,6 +4,7 @@ import {Link} from 'react-router-dom';
 import {ReactComponent as Logo} from '../assets/g-logo.svg'
 import {auth} from '../../firebase/firebase.utils'
 import {connect} from 'react-redux';
+import CartLogo from '../cart-item/cart-item.component'
 
 
 
@@ -28,7 +29,7 @@ const Header = ({currentUser}) =>(
             </Link> )
         }
 
-
+        <CartLogo />
         </div>
     </div>
 

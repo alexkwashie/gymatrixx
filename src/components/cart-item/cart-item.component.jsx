@@ -5,7 +5,7 @@ import {ReactComponent as ShoppingIcon} from '../assets/cart.svg'
 
 const CartLogo = () =>(
     <div className='cart-icon'>
-        <ShoppingIcon className="shopping-icon" />
+        <ShoppingIcon className="shopping-icon"/>
         <span className='item-count'>0</span>
     </div>
 );

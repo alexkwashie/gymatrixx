@@ -5,6 +5,7 @@ import {ReactComponent as Logo} from '../assets/g-logo.svg'
 import {auth} from '../../firebase/firebase.utils'
 import {connect} from 'react-redux';
 import CartLogo from '../cart-item/cart-item.component'
+import CartDropDown from '../cart-dropdown/cart-dropdown.component';
 
 
 
@@ -31,6 +32,7 @@ const Header = ({currentUser}) =>(
 
         <CartLogo />
         </div>
+        <CartDropDown/>
     </div>
 
 )

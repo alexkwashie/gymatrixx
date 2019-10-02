@@ -9,7 +9,7 @@ import CartDropDown from '../cart-dropdown/cart-dropdown.component';
 
 
 
-const Header = ({currentUser}) =>(
+const Header = ({currentUser, hidden}) =>(
     <div className='header' >
         <Link className='logo-container' to="/">
             <Logo className='logo'/>
@@ -32,16 +32,23 @@ const Header = ({currentUser}) =>(
 
         <CartLogo />
         </div>
-        <CartDropDown/>
+        {/*because hidden is set to true in the cart reducer, the below will not show it, but taggle it to show it*/}
+        {
+            hidden ? null: <CartDropDown/>
+        }
+
     </div>
 
 )
 
-/*This is using the connect function from redux to link in the state from the root-reducer which hold a stander
-state object whic can be used through out the application */
+/*This is using the connect function from redux to link in the state from the root-reducer which hold a standard
+state object which can be used through out the application */
 
-const mapStateToProps = state =>({
-    currentUser: state.user.currentUser //hence this is assigning the state used in this component to the default state in the root-reducer
+const mapStateToProps = ({user:{currentUser}, cart: {hidden}}) =>({ //another way of geting values from the reference to the component.
+    currentUser,
+    hidden
+    //this is state in this component references to the default state from the root-reducer
+    //Not it can be passed in as a props and its value can be used to make changes in the application
 })
 
 

@@ -6,7 +6,7 @@ import {connect} from 'react-redux'; //1. import the connect libry to allow use 
 import {toggleCartHidden} from '../../redux/cart/cart.action';
 
 import {ReactComponent as ShoppingIcon} from '../assets/cart.svg'
-import { dispatch } from 'rxjs/internal/observable/range';
+
 
 const CartLogo = ({toggleCartHidden}) =>( //3. Now pass in toggleCartHidden() as a props
     <div className='cart-icon' onClick= {toggleCartHidden}>

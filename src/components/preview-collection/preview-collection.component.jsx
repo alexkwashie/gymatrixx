@@ -10,7 +10,7 @@ const PreviewCollection = ({title, items})=>(
                 items
                 .filter((item, index) => index < 4) //this filters to the first 4 items from the tems list
                 .map((items) =>( //spread the items in the items array from shop.data.jsx
-                    <CollectionItem key={items.id} name = {items.name} price={`£${items.price}`} imageUrl= {items.imageUrl}/>
+                    <CollectionItem key={items.id} item = {items}/>
                 ))
             }
         </div>

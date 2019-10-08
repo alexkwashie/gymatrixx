@@ -1,6 +1,9 @@
 import React from 'react'
 import './collection-item.styles.scss';
+import {connect} from 'react-redux';
+import {addItem} from '../../redux/cart/cart.action';
 import CustomButton from '../custom-button/custom-button.component';
+
 
 const CollectionItem = ({id,name,price,imageUrl}) =>(
     <div className='collection-items'>
@@ -16,7 +19,5 @@ const CollectionItem = ({id,name,price,imageUrl}) =>(
 )
 
 
-
-
-
+ 
 export default CollectionItem;

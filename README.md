@@ -1,5 +1,5 @@
 # Gymatrix
-This is a React.js web online clothing store with cart functionality, user/google authenication and stripe payment api with a firbase backend service.
+This is a React.js web online clothing store with cart functionality, redux, user/google authenication and stripe payment api with a firbase backend service.
 
 ###### - Note: This project is my current I am still working on on my free time its is not complete yet.
 ###### - I am yet to finish the cart functionality and also implement the stripe api

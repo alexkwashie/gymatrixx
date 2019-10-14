@@ -1,5 +1,6 @@
 import CartActionTypes from './cart-types';
 
+import {addItemToCart} from './cart.utils';
 
 const INITIAL_STATE={ //this shows the initial value before the change, ie. being true
     hidden: true,
@@ -18,7 +19,7 @@ const cartReducer = (state = INITIAL_STATE, action) =>{
         case CartActionTypes.ADD_ITEM:
             return{
                 ...state,
-                cartItems: [...state.cartItems, action.payload]
+                cartItems: addItemToCart(state.cartItems, action.payload) //this takes in the current items in the cart and the new change
             }
             //this takes the current state and checks if there is a change, which becames the action payload
             default:
